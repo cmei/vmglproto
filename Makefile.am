@@ -6,4 +6,17 @@ vmgl_HEADERS = \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = vmglproto.pc
 
-EXTRA_DIST = autogen.sh vmglproto.pc.in
+EXTRA_DIST = vmglproto.pc.in
+
+MAINTAINERCLEANFILES = ChangeLog INSTALL
+
+.PHONY: ChangeLog INSTALL
+
+INSTALL:
+	    $(INSTALL_CMD)
+
+ChangeLog:
+	    $(CHANGELOG_CMD)
+
+dist-hook: ChangeLog INSTALL
+
